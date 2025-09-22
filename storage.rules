@@ -1,0 +1,16 @@
+rules_version = '2';
+
+// Craft rules based on data in your Firestore database
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow authenticated users to upload photos
+    match /photos/{userId}_{timestamp}.{extension} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow authenticated users to upload any file to their own folder
+    match /photos/{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
