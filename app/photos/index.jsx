@@ -464,7 +464,7 @@ const styles = StyleSheet.create({
   },
 
   timeline: { 
-    paddingBottom: 100
+    paddingBottom: 160, // Increased to ensure last post is fully visible above FAB
   },
 
   // Instagram-style post card
@@ -473,7 +473,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "#000000",
     marginBottom: 4,
-    margintop: 2,
+    marginTop: 2, // <-- fixed typo here
     borderBottomWidth: 1,
     borderBottomColor: "#2C2C2E",
     paddingBottom: 2,
@@ -611,32 +611,32 @@ postImage: {
   marginTop: 2,
 },
   editButton: {
-  backgroundColor: "#E4405F",
-  paddingHorizontal: 10,      // smaller padding
-  paddingVertical: 4,
-  borderRadius: 16,
-  marginRight: 4,
-  alignItems: "center",
-              
-},
+    backgroundColor: "#E4405F",
+    paddingHorizontal: 18,      // increased padding
+    paddingVertical: 8,         // increased padding
+    borderRadius: 22,           // more rounded
+    marginRight: 8,             // more space between buttons
+    alignItems: "center",
+    minWidth: 90,               // slightly wider
+  },
   editButtonText: {
     color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "600",
+    fontSize: 16,               // larger text
+    fontWeight: "700",
   },
   deleteButton: {
-  backgroundColor: "#FF453A",
-  paddingHorizontal: 10,
-  paddingVertical: 4,
-  borderRadius: 16,
-  marginLeft: 4,
-  alignItems: "center",
-  minWidth: 80,
-},
+    backgroundColor: "#FF453A",
+    paddingHorizontal: 18,
+    paddingVertical: 8,
+    borderRadius: 22,
+    marginLeft: 8,
+    alignItems: "center",
+    minWidth: 90,
+  },
   deleteButtonText: {
     color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "600",
+    fontSize: 16,
+    fontWeight: "700",
   },
 
   // Floating add button
@@ -655,14 +655,20 @@ postImage: {
     shadowOpacity: 0.4,
     shadowRadius: 12,
     elevation: 8,
+    display: "flex",
   },
   fabIcon: { 
-    fontSize: 50,
+    fontSize: 45,
     fontWeight: "bold",
     color: "#fff",
     textAlign: "center",
     textAlignVertical: "center", // Android only
-    fontFamily: "monospace"   
+    fontFamily: "monospace",
+    includeFontPadding: false,   // Android: helps vertical centering
+    lineHeight: 44,              // iOS: helps vertical centering
+    width: 44,
+    height: 44,
+
   },
 
   // Modal styles
